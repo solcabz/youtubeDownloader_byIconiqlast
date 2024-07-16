@@ -15,7 +15,7 @@ const DownloadForm = () => {
         setError("");
         try {
           const response = await axios.get(
-            "http://localhost:3000/getVideoInfo",
+            "http://localhost:3000/download/getVideoInfo",
             {
               params: { url },
             }
@@ -49,7 +49,7 @@ const DownloadForm = () => {
     setError("");
 
     try {
-      const response = await axios.get("http://localhost:3000/downloadMp3", {
+      const response = await axios.get("http://localhost:3000/download/audio", {
         params: { url },
         responseType: "blob",
       });

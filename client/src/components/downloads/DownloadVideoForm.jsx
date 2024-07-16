@@ -15,7 +15,7 @@ const DownloadForm = () => {
         setError("");
         try {
           const response = await axios.get(
-            "http://localhost:3000/getVideoInfo",
+            "http://localhost:3000/download/getVideoInfo",
             {
               params: { url },
             }
@@ -45,7 +45,7 @@ const DownloadForm = () => {
     setError("");
 
     try {
-      const response = await axios.get("http://localhost:3000/downloadMp4", {
+      const response = await axios.get("http://localhost:3000/download/video", {
         params: { url, format: selectedFormat },
         responseType: "blob",
       });

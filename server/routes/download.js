@@ -3,7 +3,6 @@ const fs = require("fs");
 const path = require("path");
 const cp = require("child_process");
 const ytdl = require("ytdl-core");
-// const VideoModel = require("../models/VideoModel");
 const DownloadedVideosModel = require("../model/DownloadedVideosModel");
 
 const router = express.Router();
@@ -74,7 +73,13 @@ const downloadStreams = async (url, selectedFormat) => {
 
     return { videoTitle, videoPath, audioPath };
   } catch (error) {
-    throw new Error(`Error downloading streams: ${error.message}`);
+    if (error.statusCode === 403) {
+      throw new Error(
+        `Access forbidden: The video may be private or have restricted access.`
+      );
+    } else {
+      throw new Error(`Error downloading streams: ${error.message}`);
+    }
   }
 };
 
