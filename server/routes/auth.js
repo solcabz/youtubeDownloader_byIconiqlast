@@ -36,7 +36,7 @@ router.post("/login", async (req, res) => {
     );
 
     // Set token and user role in cookies
-    res.cookie("token", token, { httpOnly: true, maxAge: 2 * 60 * 1000 }); // 1 hour
+    res.cookie("token", token, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 }); // 1 day
     res.cookie("userRole", user.role, {
       httpOnly: true,
       maxAge: 2 * 60 * 1000,

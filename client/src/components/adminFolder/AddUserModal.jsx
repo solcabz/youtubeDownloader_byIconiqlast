@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
+import { getCookie } from "../../services/cookieService";
 
 const AddUserModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
     e.preventDefault();
 
     try {
-      const token = localStorage.getItem("token");
+      const token = getCookie("token");
       const response = await axios.post(
         "http://localhost:3000/users/addUser",
         formData,
@@ -27,7 +28,6 @@ const AddUserModal = ({ isOpen, onClose }) => {
       );
 
       console.log("User added:", response.data); // Log the response data if needed
-
       onClose(); // Close the modal after successful submission
     } catch (error) {
       if (error.response) {

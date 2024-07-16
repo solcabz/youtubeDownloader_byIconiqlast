@@ -19,9 +19,9 @@ const Login = () => {
       });
 
       // Store token in cookie
-      setCookie("token", response.data.token, { expires: 2 / 1440 }); // Token expires in 1 day
+      setCookie("token", response.data.token, { expires: 1 }); // Token expires in 1 day
       // Optionally, store user role in cookie if needed
-      setCookie("userRole", response.data.user.role, { expires: 2 / 1440 }); // User role expires in 1 day
+      setCookie("userRole", response.data.user.role, { expires: 1 }); // User role expires in 1 day
       console.log("Logged in successfully!");
       navigate("/");
     } catch (error) {
