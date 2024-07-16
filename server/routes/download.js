@@ -91,7 +91,7 @@ router.get("/getVideoInfo", async (req, res) => {
   }
 });
 
-router.get("/Mp4", async (req, res) => {
+router.get("/video", async (req, res) => {
   const { url, format } = req.query;
 
   if (!format) {
@@ -167,7 +167,7 @@ router.get("/Mp4", async (req, res) => {
   }
 });
 
-router.get("/Mp3", async (req, res) => {
+router.get("/audio", async (req, res) => {
   const { url } = req.query;
 
   try {
