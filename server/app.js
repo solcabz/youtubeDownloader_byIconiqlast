@@ -1,14 +1,17 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 const path = require("path");
 const dotenv = require("dotenv");
+
+//routes connection
 const { connectDB } = require("./config/dbConnection"); // Import the connectDB function
 const indexRouter = require("./routes/root"); // root access for api
 const userRoutes = require("./routes/users"); // Import user routes
 const authRouter = require("./routes/auth");
 const profileRouter = require("./routes/profile");
-const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
+const downloadRouter = require("./routes/download");
 
 // Load environment variables from ./config/.env file
 dotenv.config({ path: path.resolve(__dirname, "./config/.env") });
@@ -35,6 +38,7 @@ app.use("/", indexRouter);
 app.use("/auth", authRouter); // Authentication routes
 app.use("/users", userRoutes); // Mount user routes
 app.use("/profile", profileRouter); // Mount profile routes
+app.use("/download", downloadRouter); // Mount Donload Routes
 
 // Global error handler
 app.use((err, req, res, next) => {
