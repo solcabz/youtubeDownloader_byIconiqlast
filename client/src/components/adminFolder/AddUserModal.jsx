@@ -27,7 +27,8 @@ const AddUserModal = ({ isOpen, onClose }) => {
         }
       );
 
-      console.log("User added:", response.data); // Log the response data if needed
+      //console.log("User added:", response.data); // Log the response data if needed
+      response(response.data);
       onClose(); // Close the modal after successful submission
     } catch (error) {
       if (error.response) {
