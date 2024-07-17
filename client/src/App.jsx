@@ -11,6 +11,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import UserProfile from "./components/adminFolder/UserProfile";
 import UserList from "./components/adminFolder/UserList";
 import Darkmode from "./services/Darkmode";
+import Unauthorized from "./components/Unauthorized";
 import "./App.css";
 
 const App = () => {
@@ -42,13 +43,14 @@ const App = () => {
       {isLoggedIn && <Darkmode />}
       <div className="h-screen content-center">
         <Routes>
+          <Route path="/audio" element={<Music />} />
+          <Route path="/" element={<Video />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/user-profile" element={<UserProfile />} />
           <Route element={<ProtectedRoute />}>
-            <Route path="/audio" element={<Music />} />
-            <Route path="/" element={<Video />} />
             <Route path="/all-users" element={<UserList />} />
-            <Route path="/user-profile" element={<UserProfile />} />
           </Route>
+          <Route path="*" element={<Unauthorized />} />
         </Routes>
       </div>
     </>

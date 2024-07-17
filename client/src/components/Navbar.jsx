@@ -96,9 +96,17 @@ const Navbar = () => {
                   Mp3
                 </Link>
 
+                <Link
+                  to="/user-profile"
+                  className=" hover:text-gray-300"
+                  onClick={toggleMenu}
+                >
+                  profile
+                </Link>
+
                 {userRole === "admin" && (
                   <Link
-                    to="/admin/userlist"
+                    to="/all-users"
                     className="hover:text-gray-300"
                     onClick={toggleMenu}
                   >

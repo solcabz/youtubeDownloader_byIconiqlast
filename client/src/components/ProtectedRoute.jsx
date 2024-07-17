@@ -3,7 +3,15 @@ import { getCookie } from "../services/cookieService";
 
 const ProtectedRoute = () => {
   const token = getCookie("token");
-  let auth = { token: token };
-  return auth.token ? <Outlet /> : <Navigate to="/login" />;
+  const userRole = getCookie("userRole");
+
+  // Check if token exists and user role is admin
+  if (token && userRole === "admin") {
+    return <Outlet />;
+  } else {
+    // Redirect to login or another route
+    return <Navigate to="/Unauthoride" />;
+  }
 };
+
 export default ProtectedRoute;
