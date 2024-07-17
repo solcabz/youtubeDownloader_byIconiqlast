@@ -10,7 +10,7 @@ const ProtectedRoute = () => {
     return <Outlet />;
   } else {
     // Redirect to login or another route
-    return <Navigate to="/Unauthoride" />;
+    return <Navigate to="/Unauthorize" />;
   }
 };
 
