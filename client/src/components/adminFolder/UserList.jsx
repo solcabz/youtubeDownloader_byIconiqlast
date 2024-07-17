@@ -123,9 +123,6 @@ const UserList = () => {
               <thead>
                 <tr>
                   <th className="py-2 px-4 bg-gray-200 dark:bg-stone-700 text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase border-b border-gray-300 dark:border-stone-700 text-left">
-                    ID
-                  </th>
-                  <th className="py-2 px-4 bg-gray-200 dark:bg-stone-700 text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase border-b border-gray-300 dark:border-stone-700 text-left">
                     Name
                   </th>
                   <th className="py-2 px-4 bg-gray-200 dark:bg-stone-700 text-sm font-semibold text-gray-700 dark:text-gray-300 uppercase border-b border-gray-300 dark:border-stone-700 text-left">
@@ -151,7 +148,6 @@ const UserList = () => {
                     key={user._id}
                     className="border-b border-gray-200 dark:border-stone-700"
                   >
-                    <td className="py-2 px-4 text-sm">{user._id}</td>
                     <td className="py-2 px-4 text-sm">
                       {editMode[user._id] ? (
                         <input

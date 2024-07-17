@@ -32,7 +32,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       { id: user._id, username: user.username, role: user.role },
       secretkey,
-      { expiresIn: "1h" } // Token expires in 1 hour
+      { expiresIn: "24h" } // Token expires in 1 hour
     );
 
     // Set token and user role in cookies
