@@ -45,7 +45,7 @@ const Darkmode = () => {
   };
 
   return (
-    <div className="absolute right-0 py-3 dark:bg-stone-800">
+    <div className="absolute right-0 py-3 bg-gray-100 dark:bg-stone-800">
       <label htmlFor="darkmode-toggle" className="darkmode mr-4">
         <input
           type="checkbox"
