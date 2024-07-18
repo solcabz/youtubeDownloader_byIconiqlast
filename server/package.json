@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
-    "build": "npm install",
+    "build": "npm install && npm install bcrypt --build-from-source",
     "serve": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
