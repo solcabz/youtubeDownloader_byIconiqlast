@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import solcabzImage from "../assets/solcabz.png";
+import imageWhite from "../assets/white.png";
 import { removeCookie, getCookie } from "../services/cookieService";
 
 const Navbar = () => {
@@ -11,9 +11,9 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = () => {
-    removeCookie("token"); // Remove the token cookie
-    removeCookie("userRole"); // Remove the user role cookie
-    navigate("/login"); // Redirect to the login page
+    removeCookie("token");
+    removeCookie("userRole");
+    navigate("/login");
   };
 
   const toggleMenu = () => {
@@ -22,13 +22,13 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-gray-100 dark:bg-stone-800 text-stone-900 dark:text-gray-300 border-b-2 border-b-stone-900 dark:border-b-white p-4 sticky top-0 z-50">
+      <nav className="bg-stone-800 text-gray-300 border-b-4 border-b-amber-500 p-4 sticky top-0 z-50">
         <div className="container mx-auto flex justify-between items-center">
           <div
             className="text-lg font-bold cursor-pointer"
             onClick={() => navigate("/")}
           >
-            <img src={solcabzImage} alt="Solcabz Logo" className="w-10 h-10" />
+            <img src={imageWhite} alt="Solcabz Logo" className="w-10 h-10" />
           </div>
 
           <div className="hidden md:flex space-x-4">
@@ -46,7 +46,7 @@ const Navbar = () => {
           </div>
 
           <div className="md:hidden flex items-center">
-            <button className="" onClick={toggleMenu}>
+            <button aria-label="Toggle Menu" onClick={toggleMenu}>
               <svg
                 className={`w-6 h-6 transition-transform duration-300 ${
                   isMenuOpen ? "rotate-180" : ""
@@ -73,37 +73,35 @@ const Navbar = () => {
       </nav>
 
       <div
-        className={`fixed top-0 left-0 w-full h-full flex justify-center items-center  bg-gray-100  dark:bg-stone-800 z-40 transform transition-transform ease-in-out duration-300 ${
+        className={`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-100 dark:bg-stone-800 z-40 transform transition-transform ease-in-out duration-300 ${
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="containertext-stone-900 dark:text-gray-300 mx-auto py-4">
+        <div className="container text-stone-900 dark:text-gray-300 mx-auto py-4">
           <div className="flex text-center flex-col space-y-4">
             {isLoggedIn ? (
               <>
                 <Link
                   to="/"
-                  className=" hover:text-gray-300"
+                  className="hover:text-gray-300"
                   onClick={toggleMenu}
                 >
                   Mp4
                 </Link>
                 <Link
                   to="/audio"
-                  className=" hover:text-gray-300"
+                  className="hover:text-gray-300"
                   onClick={toggleMenu}
                 >
                   Mp3
                 </Link>
-
                 <Link
                   to="/user-profile"
-                  className=" hover:text-gray-300"
+                  className="hover:text-gray-300"
                   onClick={toggleMenu}
                 >
-                  profile
+                  Profile
                 </Link>
-
                 {userRole === "admin" && (
                   <Link
                     to="/all-users"

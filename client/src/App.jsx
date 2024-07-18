@@ -13,6 +13,7 @@ import UserList from "./components/adminFolder/UserList";
 import Darkmode from "./services/Darkmode";
 import Unauthorized from "./components/Unauthorized";
 import "./App.css";
+import "./style.css";
 
 const App = () => {
   const navigate = useNavigate();

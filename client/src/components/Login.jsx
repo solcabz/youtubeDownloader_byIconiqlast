@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { setCookie } from "../services/cookieService"; // Adjust the path according to your project structure
 import api from "../services/api"; // Adjust the path according to your project structure
 
+import Iconiq from "../assets/Iconiqlast.png";
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -31,19 +33,16 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center gap-9 ">
       <form
         onSubmit={handleSubmit}
-        className="max-w-md w-full bg-white p-6 rounded-lg shadow-md"
+        className="max-w-md w-full bg-stone-900 p-6 rounded-lg shadow-stone-700 shadow-xl text-white"
       >
-        <div className="flex justify-center">
-          <h1>Login Form</h1>
+        <div className="flex justify-center gap-10">
+          <img src={Iconiq} alt="" />
         </div>
         <div className="mb-6">
-          <label
-            htmlFor="input-text1"
-            className="block text-sm font-medium text-gray-700"
-          >
+          <label htmlFor="input-text1" className="block text-sm font-medium ">
             Username
           </label>
           <input
@@ -51,15 +50,12 @@ const Login = () => {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full px-3 py-2 border text-stone-900 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm"
             required
           />
         </div>
         <div className="mb-6">
-          <label
-            htmlFor="input-text2"
-            className="block text-sm font-medium text-gray-700"
-          >
+          <label htmlFor="input-text2" className="block text-sm font-medium ">
             Password:
           </label>
           <input
@@ -67,13 +63,13 @@ const Login = () => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-full px-3 py-2 border text-stone-900 border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm"
             required
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+          className="w-full bg-amber-500 text-white py-2 px-4 rounded-md hover:bg-orange-500 focus:outline-none "
         >
           Login
         </button>

@@ -50,12 +50,12 @@ const Darkmode = () => {
         <input
           type="checkbox"
           id="darkmode-toggle"
-          className="darkmode_input hidden"
+          className="darkmode_input hidden "
           onChange={toggleTheme}
           checked={theme === "dark"}
           aria-label="Toggle dark mode"
         />
-        <span className="slider w-14 h-7 rounded-full block"></span>
+        <span className="slider w-14 h-7 rounded-full block dark:bg-zinc-500"></span>
       </label>
     </div>
   );
