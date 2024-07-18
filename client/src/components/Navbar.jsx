@@ -73,11 +73,11 @@ const Navbar = () => {
       </nav>
 
       <div
-        className={`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-100 dark:bg-stone-800 z-40 transform transition-transform ease-in-out duration-300 ${
+        className={`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-stone-800 z-40 transform transition-transform ease-in-out duration-300 ${
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="container text-stone-900 dark:text-gray-300 mx-auto py-4">
+        <div className="container text-gray-300 mx-auto py-4">
           <div className="flex text-center flex-col space-y-4">
             {isLoggedIn ? (
               <>
