@@ -17,7 +17,7 @@ const downloadRouter = require("./routes/download");
 dotenv.config({ path: path.resolve(__dirname, "./config/.env") });
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 // Middleware
 const corsOptions = {

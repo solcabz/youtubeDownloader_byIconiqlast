@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const path = require("path");
 
-const uri =
-  "mongodb+srv://solcabz:Cabzsol121995@iconiqsol.g4vupkv.mongodb.net/youtubeIconiq?retryWrites=true&w=majority";
+dotenv.config({ path: path.resolve(__dirname, "../config/.env") });
+const uri = process.env.MONGO_URI;
 
 async function connectDB() {
   try {
