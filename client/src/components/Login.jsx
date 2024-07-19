@@ -15,13 +15,10 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post(
-        "https://servericoniq-solcabzs-projects.vercel.app/auth/login",
-        {
-          username,
-          password,
-        }
-      );
+      const response = await api.post("http://localhost:3000/auth/login", {
+        username,
+        password,
+      });
 
       // Store token in cookie
       setCookie("token", response.data.token, { expires: 1 }); // Token expires in 1 day
