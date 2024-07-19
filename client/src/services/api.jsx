@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // Create an axios instance
 const api = axios.create({
-  baseURL: "http://localhost:3000", // Replace with your API base URL
+  baseURL: "https://youtubedownloader-byiconiqlast.onrender.com/", // Replace with your API base URL
   headers: {
     "Content-Type": "application/json",
   },
