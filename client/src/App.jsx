@@ -51,6 +51,7 @@ const App = () => {
           <Route element={<ProtectedRoute />}>
             <Route path="/all-users" element={<UserList />} />
           </Route>
+
           <Route path="*" element={<Unauthorized />} />
         </Routes>
       </div>
