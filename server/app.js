@@ -5,30 +5,33 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const dotenv = require("dotenv");
 
-//routes connection
-const { connectDB } = require("./config/dbConnection"); // Import the connectDB function
-const indexRouter = require("./routes/root"); // root access for api
-const userRoutes = require("./routes/users"); // Import user routes
+// Load environment variables from ./config/.env file
+dotenv.config({ path: path.resolve(__dirname, "./config/.env") });
+
+// Import the connectDB function
+const { connectDB } = require("./config/dbConnection");
+
+// Import routes
+const indexRouter = require("./routes/root");
+const userRoutes = require("./routes/users");
 const authRouter = require("./routes/auth");
 const profileRouter = require("./routes/profile");
 const downloadRouter = require("./routes/download");
 
-// Load environment variables from ./config/.env file
-dotenv.config({ path: path.resolve(__dirname, "./config/.env") });
-
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // Use environment variable or default to 3000
 
 // Middleware
 const corsOptions = {
   origin: "http://localhost:5173", // Replace with your frontend URL
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Corrected HTTP methods
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Allowed HTTP methods
   allowedHeaders: ["Content-Type", "Authorization"],
 };
 
+app.use(cors(corsOptions)); // Ensure CORS middleware is set early
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(cors(corsOptions));
 app.options("*", cors(corsOptions)); // Handle preflight requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // Parse JSON bodies
@@ -37,9 +40,9 @@ app.use(express.static(path.join(__dirname, "public")));
 // Routes
 app.use("/", indexRouter);
 app.use("/auth", authRouter); // Authentication routes
-app.use("/users", userRoutes); // Mount user routes
-app.use("/profile", profileRouter); // Mount profile routes
-app.use("/download", downloadRouter); // Mount Donload Routes
+app.use("/users", userRoutes); // User routes
+app.use("/profile", profileRouter); // Profile routes
+app.use("/download", downloadRouter); // Download routes
 
 // Global error handler
 app.use((err, req, res, next) => {
@@ -48,7 +51,6 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server and connect to the database
-// Function to start the server and connect to the database
 const startServer = async () => {
   try {
     await connectDB();

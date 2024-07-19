@@ -18,7 +18,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
     try {
       const token = getCookie("token");
       const response = await axios.post(
-        "http://localhost:3000/users/addUser",
+        "https://servericoniq-5et7v7quh-solcabzs-projects.vercel.app/users/addUser",
         formData,
         {
           headers: {

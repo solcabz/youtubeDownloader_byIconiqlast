@@ -20,11 +20,14 @@ const UserList = () => {
     try {
       setLoading(true);
       const token = getCookie("token");
-      const response = await axios.get("http://localhost:3000/users/userlist", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        "https://servericoniq-5et7v7quh-solcabzs-projects.vercel.app/users/userlist",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setUsers(response.data);
       setLoading(false);
     } catch (error) {
@@ -36,11 +39,14 @@ const UserList = () => {
   const deleteUser = async (userId) => {
     try {
       const token = getCookie("token");
-      await axios.delete(`http://localhost:3000/users/${userId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.delete(
+        `https://servericoniq-5et7v7quh-solcabzs-projects.vercel.app/users/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setUsers(users.filter((user) => user._id !== userId)); // Optimistic UI update
     } catch (error) {
       setError("Error deleting user.");
@@ -74,7 +80,7 @@ const UserList = () => {
     try {
       const token = getCookie("token");
       await axios.put(
-        `http://localhost:3000/users/${userId}`,
+        `https://servericoniq-5et7v7quh-solcabzs-projects.vercel.app/users/${userId}`,
         editedData[userId],
         {
           headers: {

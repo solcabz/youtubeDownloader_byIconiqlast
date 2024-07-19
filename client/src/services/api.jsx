@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // Create an axios instance
 const api = axios.create({
-  baseURL: "http://localhost:3000", // Replace with your API base URL
+  baseURL: "https://servericoniq-5et7v7quh-solcabzs-projects.vercel.app", // Replace with your API base URL
   headers: {
     "Content-Type": "application/json",
   },
