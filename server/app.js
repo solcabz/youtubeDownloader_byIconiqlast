@@ -21,7 +21,7 @@ const PORT = 3000;
 
 // Middleware
 const corsOptions = {
-  origin: "http://localhost:5173", // Replace with your frontend URL
+  origin: "https://main--iconiqlast-downloader.netlify.app", // Replace with your frontend URL
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Corrected HTTP methods
