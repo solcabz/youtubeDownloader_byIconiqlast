@@ -19,19 +19,20 @@ const profileRouter = require("./routes/profile");
 const downloadRouter = require("./routes/download");
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Use environment variable or default to 3000
+const PORT = 3000;
 
 // Middleware
 const corsOptions = {
   origin: "http://localhost:5173", // Replace with your frontend URL
   credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+  optionSuccessStatus: 200,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Allowed HTTP methods
   allowedHeaders: ["Content-Type", "Authorization"],
 };
 
-app.use(cors(corsOptions)); // Ensure CORS middleware is set early
 app.use(cookieParser());
 app.use(bodyParser.json());
+app.use(cors(corsOptions));
 app.options("*", cors(corsOptions)); // Handle preflight requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // Parse JSON bodies

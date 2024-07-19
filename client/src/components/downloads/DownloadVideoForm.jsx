@@ -15,7 +15,7 @@ const DownloadForm = () => {
         setError("");
         try {
           const response = await axios.get(
-            "https://servericoniq-5et7v7quh-solcabzs-projects.vercel.app/download/getVideoInfo",
+            "http://localhost:3000/download/getVideoInfo",
             {
               params: { url },
             }
