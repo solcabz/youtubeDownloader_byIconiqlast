@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../../services/api";
 import { PencilIcon, TrashIcon, PlusIcon } from "@heroicons/react/24/solid";
 import AddUserModal from "./AddUserModal"; // Adjust the path as necessary
 import { getCookie } from "../../services/cookieService";
@@ -20,7 +20,7 @@ const UserList = () => {
     try {
       setLoading(true);
       const token = getCookie("token");
-      const response = await axios.get("http://localhost:3000/users/userlist", {
+      const response = await api.get("/users/userlist", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -36,7 +36,7 @@ const UserList = () => {
   const deleteUser = async (userId) => {
     try {
       const token = getCookie("token");
-      await axios.delete(`http://localhost:3000/users/${userId}`, {
+      await api.delete(`/users/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -73,15 +73,11 @@ const UserList = () => {
   const saveEditedData = async (userId) => {
     try {
       const token = getCookie("token");
-      await axios.put(
-        `http://localhost:3000/users/${userId}`,
-        editedData[userId],
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      await api.put(`/users/${userId}`, editedData[userId], {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setUsers(
         users.map((user) => (user._id === userId ? editedData[userId] : user))
       ); // Optimistic UI update
