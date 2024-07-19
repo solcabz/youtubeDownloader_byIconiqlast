@@ -15,7 +15,7 @@ const DownloadForm = () => {
         setError("");
         try {
           const response = await axios.get(
-            "http://localhost:3000/download/getVideoInfo",
+            "https://youtubedownloader-byiconiqlast.onrender.com/download/getVideoInfo",
             {
               params: { url },
             }
@@ -49,10 +49,13 @@ const DownloadForm = () => {
     setError("");
 
     try {
-      const response = await axios.get("http://localhost:3000/download/audio", {
-        params: { url },
-        responseType: "blob",
-      });
+      const response = await axios.get(
+        "https://youtubedownloader-byiconiqlast.onrender.com/download/audio",
+        {
+          params: { url },
+          responseType: "blob",
+        }
+      );
 
       const filename = videoTitle ? `${videoTitle}.mp3` : "downloaded.mp3";
       saveAs(response.data, filename);

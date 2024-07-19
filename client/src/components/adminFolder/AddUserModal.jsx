@@ -18,7 +18,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
     try {
       const token = getCookie("token");
       const response = await axios.post(
-        "http://localhost:3000/users/addUser",
+        "https://youtubedownloader-byiconiqlast.onrender.com/users/addUser",
         formData,
         {
           headers: {
