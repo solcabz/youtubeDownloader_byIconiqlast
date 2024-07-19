@@ -13,6 +13,8 @@ const authRouter = require("./routes/auth");
 const profileRouter = require("./routes/profile");
 const downloadRouter = require("./routes/download");
 
+const allowCors = require("./middleware/allowCors");
+
 // Load environment variables from ./config/.env file
 dotenv.config({ path: path.resolve(__dirname, "./config/.env") });
 
@@ -37,11 +39,11 @@ app.use(express.json()); // Parse JSON bodies
 app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
-app.use("/", indexRouter);
-app.use("/auth", authRouter); // Authentication routes
-app.use("/users", userRoutes); // Mount user routes
-app.use("/profile", profileRouter); // Mount profile routes
-app.use("/download", downloadRouter); // Mount Donload Routes
+app.use("/", allowCors, indexRouter);
+app.use("/auth", allowCors, authRouter); // Authentication routes
+app.use("/users", allowCors, userRoutes); // Mount user routes
+app.use("/profile", allowCors, profileRouter); // Mount profile routes
+app.use("/download", allowCors, downloadRouter); // Mount Donload Routes
 
 // Global error handler
 app.use((err, req, res, next) => {
