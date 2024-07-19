@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -20,18 +20,18 @@ const app = express();
 const PORT = 3000;
 
 // Middleware
-const corsOptions = {
-  origin: "http://localhost:5173", // Replace with your frontend URL
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Corrected HTTP methods
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
+// const corsOptions = {
+//   origin: "http://localhost:5173", // Replace with your frontend URL
+//   credentials: true, //access-control-allow-credentials:true
+//   optionSuccessStatus: 200,
+//   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Corrected HTTP methods
+//   allowedHeaders: ["Content-Type", "Authorization"],
+// };
 
+// app.use(cors(corsOptions));
+// app.options("*", cors(corsOptions)); // Handle preflight requests
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // Handle preflight requests
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // Parse JSON bodies
 app.use(express.static(path.join(__dirname, "public")));
