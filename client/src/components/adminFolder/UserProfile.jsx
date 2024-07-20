@@ -34,10 +34,23 @@ const UserProfile = () => {
         <div className="flex flex-col items-center">
           <p className="text-lg font-semibold mb-2">
             Loading
-            <span className="inline-block mx-1">
-              <span className="inline-block w-2 h-2 rounded-full bg-[#f7901e] animate-fade delay-0"></span>
-              <span className="inline-block w-2 h-2 rounded-full bg-[#f7901e] animate-fade delay-500"></span>
-              <span className="inline-block w-2 h-2 rounded-full bg-[#f7901e] animate-fade delay-1000"></span>
+            <span
+              className="animate-bounce inline-block"
+              style={{ animationDelay: "0.1s" }}
+            >
+              .
+            </span>
+            <span
+              className="animate-bounce inline-block"
+              style={{ animationDelay: "0.2s" }}
+            >
+              .
+            </span>
+            <span
+              className="animate-bounce inline-block"
+              style={{ animationDelay: "0.3s" }}
+            >
+              .
             </span>
           </p>
           <svg

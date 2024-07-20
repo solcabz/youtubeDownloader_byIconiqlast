@@ -8,14 +8,18 @@ export default {
         "share-tech": ['"Share Tech Mono"', "monospace"],
       },
       animation: {
-        fade: "fade 1.5s infinite",
+        bounce: "bounce 1s infinite",
       },
       keyframes: {
-        fade: {
-          "0%": { opacity: "0" },
-          "50%": { opacity: "1" },
-          "100%": { opacity: "0" },
+        bounce: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-0.5rem)" },
         },
+      },
+      animationDelay: {
+        100: "100ms",
+        200: "200ms",
+        300: "300ms",
       },
     },
   },
