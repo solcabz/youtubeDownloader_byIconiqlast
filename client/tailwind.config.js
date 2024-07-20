@@ -16,7 +16,7 @@ export default {
           "50%": { transform: "translateY(-0.5rem)" },
         },
       },
-      transitionDelay: {
+      animationDelay: {
         100: "100ms",
         200: "200ms",
         300: "300ms",
