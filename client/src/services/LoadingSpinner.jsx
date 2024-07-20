@@ -4,23 +4,30 @@ const LoadingSpinner = () => {
   return (
     <div className="loading-spinner-container">
       <svg
-        className="loading-spinner"
+        id="Layer_1"
+        data-name="loading-spinner"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 500 500"
-        width="100"
-        height="100"
       >
-        <rect x="0" y="0" width="500" height="500" fill="none" />
-        <rect
-          x="0"
-          y="0"
-          width="400"
-          height="400"
-          fill="none"
-          stroke="#000"
-          strokeWidth="10"
+        <defs></defs>
+        <polygon
+          className="cls-1"
+          points="49.84 49.84 49.84 449.98 366.62 449.98 366.62 383.29 116.53 383.29 116.53 116.53 383.29 116.53 383.29 366.62 449.98 366.62 449.98 49.84 49.84 49.84"
         />
-        <rect x="400" y="400" width="100" height="100" fill="#FFA500" />
+        <rect
+          className="cls-2"
+          x="383.29"
+          y="383.29"
+          width="66.69"
+          height="66.69"
+        />
+        <rect
+          className="cls-2"
+          x="449.98"
+          y="449.98"
+          width="50.02"
+          height="50.02"
+        />
       </svg>
     </div>
   );
