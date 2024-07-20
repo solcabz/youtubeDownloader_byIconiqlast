@@ -102,7 +102,7 @@ const UserList = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-stone-800 text-gray-300">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-stone-800 text-stone-900 dark:text-gray-300 p-4">
         <p className="text-lg font-semibold mb-2">
           Loading
           <span
