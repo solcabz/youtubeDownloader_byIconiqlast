@@ -102,10 +102,30 @@ const UserList = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-stone-800 text-gray-300">
-        <p className="text-lg font-semibold mb-2">Loading...</p>
+      <div className="flex flex-col items-center">
+        <p className="text-lg font-semibold mb-2">
+          Loading
+          <span
+            className="animate-bounce inline-block"
+            style={{ animationDelay: "0.1s" }}
+          >
+            .
+          </span>
+          <span
+            className="animate-bounce inline-block"
+            style={{ animationDelay: "0.2s" }}
+          >
+            .
+          </span>
+          <span
+            className="animate-bounce inline-block"
+            style={{ animationDelay: "0.3s" }}
+          >
+            .
+          </span>
+        </p>
         <svg
-          className="animate-spin h-8 w-8 text-stone-900 dark:text-gray-300"
+          className="animate-spin h-16 w-16 text-[#f7901e]"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
