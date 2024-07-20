@@ -32,12 +32,17 @@ const UserProfile = () => {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-stone-800 text-stone-900 dark:text-gray-300 p-4">
       {loading ? (
         <div className="flex flex-col items-center">
-          <p className="text-lg font-semibold mb-2">Loading...</p>
+          <p className="text-lg font-semibold mb-2">
+            Loading
+            <span className="animate-bounce delay-100">.</span>
+            <span className="animate-bounce delay-200">.</span>
+            <span className="animate-bounce delay-300">.</span>
+          </p>
           <svg
-            className="animate-spin h-8 w-8 text-stone-900 dark:text-gray-300"
+            className="animate-spin h-16 w-16 text-[#f7901e]"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 40 40"
+            viewBox="0 0 24 24"
           >
             <circle
               className="opacity-25"
