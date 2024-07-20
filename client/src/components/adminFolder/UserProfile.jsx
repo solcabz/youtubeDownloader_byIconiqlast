@@ -34,9 +34,9 @@ const UserProfile = () => {
         <div className="flex flex-col items-center">
           <p className="text-lg font-semibold mb-2">
             Loading
-            <span className="animate-bounce delay-100">.</span>
-            <span className="animate-bounce delay-200">.</span>
-            <span className="animate-bounce delay-300">.</span>
+            <span className="animate-bounce delay-[100ms]">.</span>
+            <span className="animate-bounce delay-[200ms]">.</span>
+            <span className="animate-bounce delay-[300ms]">.</span>
           </p>
           <svg
             className="animate-spin h-16 w-16 text-[#f7901e]"
