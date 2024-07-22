@@ -11,9 +11,22 @@ const AddUserModal = ({ isOpen, onClose }) => {
     role: "",
     password: "",
   });
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null); // Reset error state before submission
+
+    if (
+      !formData.name ||
+      !formData.username ||
+      !formData.email ||
+      !formData.role ||
+      !formData.password
+    ) {
+      setError("All fields are required.");
+      return;
+    }
 
     try {
       const token = getCookie("token");
@@ -26,22 +39,25 @@ const AddUserModal = ({ isOpen, onClose }) => {
           },
         }
       );
-
-      //console.log("User added:", response.data); // Log the response data if needed
       response(response.data);
+      // Optionally log the response data if needed
+      //console.log("User added:", response.data);
       onClose(); // Close the modal after successful submission
     } catch (error) {
       if (error.response) {
         // The request was made and the server responded with a status code
-        console.error("Server responded with error:", error.response.data);
+        setError(
+          `Server responded with error: ${
+            error.response.data.message || error.response.data
+          }`
+        );
       } else if (error.request) {
         // The request was made but no response was received
-        console.error("No response received:", error.request);
+        setError("No response received from the server.");
       } else {
         // Something happened in setting up the request that triggered an Error
-        console.error("Error setting up the request:", error.message);
+        setError(`Error setting up the request: ${error.message}`);
       }
-      // Handle error state or feedback to the user
     }
   };
 
@@ -64,6 +80,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
         <h2 className="text-stone-900 dark:text-white text-xl font-bold mb-4">
           Add User
         </h2>
+        {error && <div className="text-red-500 mb-4">{error}</div>}
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col gap-4">
             <input
@@ -73,6 +90,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
               onChange={handleChange}
               placeholder="Full Name"
               className="py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              aria-label="Full Name"
             />
             <input
               type="text"
@@ -81,6 +99,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
               onChange={handleChange}
               placeholder="Username"
               className="py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              aria-label="Username"
             />
             <input
               type="email"
@@ -89,12 +108,14 @@ const AddUserModal = ({ isOpen, onClose }) => {
               onChange={handleChange}
               placeholder="Email"
               className="py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              aria-label="Email"
             />
             <select
               name="role"
               value={formData.role}
               onChange={handleChange}
               className="py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              aria-label="Role"
             >
               <option value="">Select Role</option>
               <option value="user">User</option>
@@ -107,6 +128,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
               onChange={handleChange}
               placeholder="Password"
               className="py-2 px-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+              aria-label="Password"
             />
           </div>
           <div className="flex justify-end mt-6">
