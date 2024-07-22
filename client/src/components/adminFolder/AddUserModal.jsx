@@ -30,7 +30,7 @@ const AddUserModal = ({ isOpen, onClose }) => {
 
     try {
       const token = getCookie("token");
-      const response = await axios.post(
+      await axios.post(
         "https://youtubedownloader-byiconiqlast.onrender.com/users/addUser",
         formData,
         {
@@ -39,8 +39,6 @@ const AddUserModal = ({ isOpen, onClose }) => {
           },
         }
       );
-      response(response.data);
-      // Optionally log the response data if needed
       //console.log("User added:", response.data);
       onClose(); // Close the modal after successful submission
     } catch (error) {
